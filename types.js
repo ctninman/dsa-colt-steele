@@ -8,7 +8,7 @@
 // input: 2 arrays, output: true if every value in array has corresponding value in 2nd array, same frequency
 
 // NAIVE SOLUTION   O(N^2)
-function same (arr1) {
+function same (arr1, arr2) {
 	// if arrays not the same length, can't be true
 	if (arr1.length !== arr2.length) {
 		return false;
@@ -26,6 +26,34 @@ function same (arr1) {
 	}
 	// if we make it to the end of the function without returning false, return true
 	return true
+}
+
+// REFACTORED FREQUENCY COUNTER
+function sameBetter (arr1, arr2) {
+		// if arrays not the same length, can't be true
+		if (arr1.length !== arr2.length) {
+			return false;
+		}
+		let frequencyCounter1 = {}
+		let frequencyCounter2 = {}
+		// loop of each arr (not nested so O(N) ) and create an object which hold the count of each
+		for (let val of arr1) {
+			frequencyCounter1[val] = (frequencyCounter1 || 0) + 1
+		}
+		for (let val of arr2) {
+			frequencyCounter2[val] = (frequencyCounter2 || 0) + 1
+		}
+		for(let key in frequencyCounter1) {
+			// is the square of each value in array1 present in array2?
+			if (!(key ** 2 in frequencyCounter2)) {
+				return false
+			}
+			// does the number of squared values in array2 equal those of array1
+			if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+				return false
+			}
+		}
+		return true
 }
 
 
