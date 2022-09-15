@@ -56,7 +56,33 @@ function sameBetter (arr1, arr2) {
 		return true
 }
 
+// SOLVE ANAGRAM WITH FREQUENCY COUNTER METHOD
 
+function validAnagram (str1, str2) {
+	if (str1.length !== str2.length) {
+		return false
+	}
+
+	const lookup = {}
+
+	for (let i = 0; i < str1.length; i++) {
+		let letterStr1 = str1[i];
+		lookup[letterStr1] ? lookup[letterStr1] += 1 : lookup[letterStr1] = 1
+	}
+	
+	for (let i = 0; i < str2.length; i++) {
+		let letterStr2 = str2[i];
+		if (!lookup[letterStr2]) {
+			return false;
+		} else {
+			lookup[letterStr2] -= 1
+		}
+		return true
+	}
+}
+
+console.log(validAnagram('naanba', 'banana'))
+console.log(validAnagram('naanba', 'bananac'))
 
 // MULTIPLE POINTERS
 
