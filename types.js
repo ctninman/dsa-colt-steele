@@ -86,8 +86,21 @@ console.log(validAnagram('naanba', 'bananac'))
 
 // MULTIPLE POINTERS
 
+// given an ordered array of numbers (must be ordered for better solution to work)
+// return the first two numbers that add up to equal zero
 
+// NAIVE SOLUTION
+// O(n^2) nested loop
 
+function naiveSumZero (arr) {
+	for (let i = 0; i < arr.length - 1; i++) {
+		for (let j = i + 1; j < arr.length; j++) {
+			if (arr[i] + arr[j] === 0) {
+				return [arr[i], arr[j]]
+			}
+		}
+	}
+}
 
 
 
