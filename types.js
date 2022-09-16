@@ -203,13 +203,52 @@ function fasterMaxSubarraySum (arr, num) {
 	return maxSum;
 }
 
-console.log(naiveMaxSubarraySum([1,2,3,4,5,6,7,8,9,10], 4));
-console.log(fasterMaxSubarraySum([1,2,3,4,5,6,7,8,9,10], 4));
+// console.log(naiveMaxSubarraySum([1,2,3,4,5,6,7,8,9,10], 4));
+// console.log(fasterMaxSubarraySum([1,2,3,4,5,6,7,8,9,10], 4));
 
 
 // DIVIDE AND CONQUER
 
+// quick sort and merge sort
+// binary search trees
 
+// take a larger set of data, instead of going from left to right, divide it into smaller groups
+// binary search, must be sorted
+
+
+// given an array of numbers and a value, find index of element that matches value given 
+
+// NAIVE SEARCH O(n)
+function naiveSearch (arr, val) {
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] === val) {
+			return i;
+		}
+	}
+	return -1
+}
+
+// BINARY SEARCH O(log(n))
+function binarySearch (arr, val) {
+	let min = 0;
+	let max = arr.length - 1;
+
+	while (min <= max) {
+		let middle = Math.floor((min + max) / 2)
+		let currentElement = arr[middle];
+		console.log('ce', currentElement)
+		if (arr[middle] < val) {
+			min = middle + 1;
+		} else if (arr[middle] > val) {
+			max = middle - 1;
+		} else {
+			return middle;
+		}
+	}
+	return -1
+}
+
+console.log(binarySearch([1,2,4,5,6,7,8,12,13,15,17,21,23,25,26,32,34,36,37,38,41,42,43,45,46,47], 5))
 
 
 
