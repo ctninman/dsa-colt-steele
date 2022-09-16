@@ -154,21 +154,41 @@ function coltPointers (arr) {
 	return i + 1
 }
 
-console.log(countUniqueValues([1,2,3,4,5]))
-console.log(countUniqueValues([1,2,3,3,3,4,5]))
-console.log(countUniqueValues([1,2,2,3,3,4,5]))
-console.log(countUniqueValues([1,1,1,1,1]))
+// console.log(countUniqueValues([1,2,3,4,5]))
+// console.log(countUniqueValues([1,2,3,3,3,4,5]))
+// console.log(countUniqueValues([1,2,2,3,3,4,5]))
+// console.log(countUniqueValues([1,1,1,1,1]))
 
-console.log(coltPointers([1,2,3,4,5]))
-console.log(coltPointers([1,2,3,3,3,4,5]))
-console.log(coltPointers([1,2,2,3,3,4,5]))
-console.log(coltPointers([1,1,1,1,1]))
+// console.log(coltPointers([1,2,3,4,5]))
+// console.log(coltPointers([1,2,3,3,3,4,5]))
+// console.log(coltPointers([1,2,2,3,3,4,5]))
+// console.log(coltPointers([1,1,1,1,1]))
 
 // SLIDING WINDOW
+// useful for keeping track of a subset of data in a larger set of data
 
+// function maxSubarraySum
+// accepts array of integers, and a number/
+// calculates the maximum sum of n consecutive elements in the array
 
+// NAIVE SOLUTION
+// loop through array, count 4 elements, add them, check if greater than previous high, increase i
+function naiveMaxSubarraySum (arr, num) {
+	if (num >  arr.length) return null;
+	let max = -Infinity;
+	for (let i = 0; i < arr.length - num + 1; i++) {
+		let temp = 0;
+		for (j = 0; j < num; j++) {
+			temp += arr[i + j];
+		}
+		if (temp > max) {
+			max = temp;
+		}
+	}
+	return max;
+}
 
-
+console.log(naiveMaxSubarraySum([1,2,3,4,5,6,7,8,9,10], 4));
 
 
 // DIVIDE AND CONQUER
