@@ -120,6 +120,50 @@ function fasterSumZero (arr) {
 console.log(naiveSumZero([-7, -3, -2, -1, 2, 5, 6]))
 console.log(fasterSumZero([-7, -3, -2, -1, 2, 5, 6]))
 
+// Multiple pointers
+// countUniqueValues of a ** sorted array **
+
+function countUniqueValues (arr) {
+	if (arr.length === 0) {return 0}
+	let left = 0;
+	let right = 1;
+	let uniqueValueCount = 1;
+	while (right < arr.length) {
+		if (arr[left] === arr[right]) {
+			right++
+		} else if (arr[left] !== arr[right]) {
+			uniqueValueCount++
+			left = right
+			right++
+		}
+	}
+	return uniqueValueCount
+}
+
+// OR COLT'S SOLUTION
+
+function coltPointers (arr) {
+	if (arr.length === 0) return 0
+	let i = 0;
+	for (let j = 1; j < arr.length; j++) {
+		if (arr[i] !== arr[j]) {
+			i++;
+			arr[i] = arr[j]
+		}
+	}
+	return i + 1
+}
+
+console.log(countUniqueValues([1,2,3,4,5]))
+console.log(countUniqueValues([1,2,3,3,3,4,5]))
+console.log(countUniqueValues([1,2,2,3,3,4,5]))
+console.log(countUniqueValues([1,1,1,1,1]))
+
+console.log(coltPointers([1,2,3,4,5]))
+console.log(coltPointers([1,2,3,3,3,4,5]))
+console.log(coltPointers([1,2,2,3,3,4,5]))
+console.log(coltPointers([1,1,1,1,1]))
+
 // SLIDING WINDOW
 
 
