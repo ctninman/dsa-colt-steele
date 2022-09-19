@@ -73,7 +73,7 @@ function averagePair (arr, targetAvg) {
 	return false
 }
 
-console.log(averagePair([1,2,4,5,6,7,8,9,11,12,13,14], 12.5));
+// console.log(averagePair([1,2,4,5,6,7,8,9,11,12,13,14], 12.5));
 
 function yoAverage (arr, targetAvg) {
 	let start = 0;
@@ -81,8 +81,8 @@ function yoAverage (arr, targetAvg) {
 	let avg = (arr[start] + arr[end]) / 2
 	while (start < end) {
 		avg = (arr[start] + arr[end]) / 2
-		console.log('avg = ', avg, 'targ = ', targetAvg);
-		console.log(arr[start], arr[end])
+		// console.log('avg = ', avg, 'targ = ', targetAvg);
+		// console.log(arr[start], arr[end])
 		if (avg === targetAvg) {
 			return true;
 		} else if (avg < targetAvg) {
@@ -94,4 +94,24 @@ function yoAverage (arr, targetAvg) {
 	return false;
 }
 
-console.log(yoAverage([1,2,4,5,6], 4.5));
+// console.log(yoAverage([1,2,4,5,6], 4.5));
+
+
+function maxSubSum (arr, num) {
+	// let firstIndex = 0;
+	// let lastIndex = num - 1;
+	let highestSum = 0;
+	for (let i = 0; i < num; i++) {
+		highestSum += arr[i];
+	}
+	for (let j = 0; j < arr.length - num; j++) {
+		let currentSum = highestSum - arr[j] + arr[j + num];
+		if (currentSum > highestSum) {
+			highestSum = currentSum;
+		}
+	}
+	return highestSum;
+}
+
+console.log(maxSubSum([1,2,3,4,5,6,7,8,9], 3))
+console.log(maxSubSum([1,2,3,4,5,6,7,8,9,2,3,4,0], 3))
