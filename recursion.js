@@ -116,3 +116,21 @@ function recursiveReverse (str) {
 }
 
 console.log(recursiveReverse('ebup'))
+
+// RECURSIVE ISPALINDROME?
+// accepts a string and returns true if same forward and backward, else false
+
+function recursiveIsPalindrome (str) {
+	let strArr = str.split('')
+	let reversedString = ''
+	function helperPalindrome (arr, str) {
+		if (strArr.length === 0) return str
+		reversedString = arr[0] + str
+		arr.shift()
+		return helperPalindrome(strArr, reversedString)
+	}
+	helperPalindrome(strArr, reversedString)
+	return str === reversedString ? true : false;
+}
+
+console.log(recursiveIsPalindrome('bobebob'))
