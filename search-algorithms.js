@@ -21,3 +21,28 @@ function returnIndex (arr, val) {
 	}
 	return -1
 }
+
+// BINARY SEARCH
+
+/*
+	eliminate half of the remaining array at any point
+	*** must be a sorted array
+  *** DIVIDE AND CONQUER
+*/
+
+function homemadeBinarySearch (arr, val) {
+	let left = 0;
+	let right = arr.length - 1;
+	let middle = Math.floor(right / 2)
+	while (left <= right) {
+		if (arr[middle] === val) {
+			return middle;
+		} else if (arr[middle] < val) {
+			left = middle + 1;
+		} else if (arr[middle] > val) {
+			right = middle - 1;
+		}
+		middle = (left + right) / 2
+	}
+	return -1
+}
