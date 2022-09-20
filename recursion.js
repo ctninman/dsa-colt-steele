@@ -97,3 +97,22 @@ function recursiveRange (num) {
 }
 
 console.log(recursiveRange(10))
+
+
+// RECURSIVE REVERSE
+// accepts a string and reverses it using recursion
+
+function recursiveReverse (str) {
+	let strArr = str.split('')
+	let reversedString = ''
+	function helperReverse (arr, str) {
+		if (strArr.length === 0) return str
+		reversedString = arr[0] + str
+		arr.shift()
+		return helperReverse(strArr, reversedString)
+	}
+	return helperReverse(strArr, reversedString)
+
+}
+
+console.log(recursiveReverse('ebup'))
