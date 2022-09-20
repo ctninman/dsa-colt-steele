@@ -96,7 +96,7 @@ function recursiveRange (num) {
 	return num + recursiveRange(num -1)
 }
 
-console.log(recursiveRange(10))
+// console.log(recursiveRange(10))
 
 
 // RECURSIVE REVERSE
@@ -112,10 +112,14 @@ function recursiveReverse (str) {
 		return helperReverse(strArr, reversedString)
 	}
 	return helperReverse(strArr, reversedString)
-
 }
 
-console.log(recursiveReverse('ebup'))
+function coltRecursiveReverse (str) {
+	if (str.length <= 1) return str;
+	return reverse(str.slice(1)) + str[0];
+}
+
+// console.log(recursiveReverse('ebup'))
 
 // RECURSIVE ISPALINDROME?
 // accepts a string and returns true if same forward and backward, else false
@@ -133,4 +137,30 @@ function recursiveIsPalindrome (str) {
 	return str === reversedString ? true : false;
 }
 
-console.log(recursiveIsPalindrome('bobebob'))
+// console.log(recursiveIsPalindrome('bobebob'))
+
+function coltRecursivePalindrome (str) {
+	if (str.length === 1) return true;
+	if (str.length === 2) return str[0] === str[1];
+	if (str[0] === str.slice(-1)) return coltRecursivePalindrome(str.slice(1,-1));
+	return false;
+}
+
+function isOdd(arr, num) {
+	if (arr.length === 0) return false
+	if (num % 2 === 1) return true;
+	arr.pop()
+	return isOdd(arr, arr[arr.length - 1])
+}
+
+function someRecursive (arr, callbackFun) {
+	return callbackFun(arr, arr[arr.length - 1])
+}
+
+console.log(someRecursive([2,4,6], isOdd))
+
+function coltSomeRecursive (arr, callback) {
+	if (arr.length === 0) return false;
+	if (callback(arr[0])) return true;
+	return coltSomeRecursive(arr.slice(1), callback)
+}
