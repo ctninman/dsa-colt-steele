@@ -97,4 +97,46 @@ class SinglyLinkedList{
 		return false;
 	}
 
+	insert(indx, val){
+		if(indx < 0 || indx > this.length) return false;
+		if(indx === this.length) return this.push(val);
+		if(this.length === 0) return this.unshift(val);
+		
+		let prev = this.get(indx - 1);
+		let newNode = new Node(val);
+		let temp = prev.next;
+		prev.next = newNode;
+		newNode.next = temp;
+		this.length++;
+		return true;
+	}
+
+	remove(indx) {
+		if(indx <= 0) return undefined;
+		if(indx === 0) return this.shift();
+		if(indx === this.length - 1) return this.pop();
+
+		let previousNode = this.get(indx - 1);
+		let removedNode = previousNode.next;
+		previousNode.next = removedNode.next;
+		this.length--;
+		return removedNode;
+	}
+
+	reverse() {
+		let node = this.head;
+		this.head = this.tail;
+		this.tail = node;
+		let next;
+		let prev = null;
+
+		for (let i = 0; i < this.length; i++) {
+			next = node.next;
+			node.next = prev;
+			prev = node;
+			node = next;
+		}
+		return this;
+	}
+
 }
