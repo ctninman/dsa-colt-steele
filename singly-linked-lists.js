@@ -140,3 +140,18 @@ class SinglyLinkedList{
 	}
 
 }
+
+
+/*
+BIG O of Singly linked lists
+
+insertion O(1)
+removal 0(1) or O(n) DEPENDS
+searching O(n)
+access O(n)
+
+excel at insertion and deletion at beginning are frequently required
+no index
+foundation for stack and queues
+
+*/
