@@ -90,5 +90,34 @@ class DoublyLinkedList {
 		return this;
 	}	
 
+	get(idx) {
+		if (idx < 0 || idx >= this.length) return null;
+		if (idx <= this.length / 2) {
+			let counter = 0;
+			let current = this.head;
+			while (counter !== idx) {
+				current = current.next;
+				counter++;
+			}
+		} else {
+			let counter = this.length - 1;
+			let current = this.tail;
+			while (count !==idx) {
+				current = current.prev;
+				counter--;
+			}
+		}
+		return current;
+	}
+
+	set(idx, val) {
+		let foundNode = this.get(idx);
+		if (found != null) {
+			foundNode.val = val;
+			return true;
+		}
+		return false;
+	}
+
 }
 
