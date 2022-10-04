@@ -38,6 +38,10 @@ BINARY SEARCH TREES
 	Anything to the left is less than
 	Anything to the right is greater than
 
+BEST CASE, though not guaranteed
+Big O = O(log^n)
+	both search and insert
+
 */
 
 class Node {
