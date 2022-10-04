@@ -99,6 +99,17 @@ For any type of tree, not just binary search trees
 			return data;
 		}
 	
+		DFSPostOrder () {
+			let data = [],
+					current = this.root;
+				function traverse(node) {
+					if (node.left) traverse(node.left);
+					if (node.right) traverse(node.right);
+					data.push(node);
+				}
+				traverse(current)
+			return data;
+		}
 	}
 	
 	let tree = new BinarySearchTree();
