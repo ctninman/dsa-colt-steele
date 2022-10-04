@@ -110,6 +110,18 @@ For any type of tree, not just binary search trees
 				traverse(current)
 			return data;
 		}
+
+		DFSInOrder () {
+			let data = [],
+					current = this.root;
+			function traverse (node) {
+				if (node.left) traverse(node.left)
+				data.push(node);
+				if (node.right) traverse(node.right)
+			}	
+			traverse(current);
+			return data;
+		}
 	}
 	
 	let tree = new BinarySearchTree();
