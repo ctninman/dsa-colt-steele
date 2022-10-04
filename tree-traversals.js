@@ -86,6 +86,18 @@ For any type of tree, not just binary search trees
 			}
 			return data;
 		}
+
+		DFSPreOrder () {
+			let data = [],
+					current = this.root;
+			function traverse(node) {
+				data.push(node);
+				if (node.left) traverse(node.left);
+				if (node.right) traverse(node.right);
+			}
+			traverse(current)
+			return data;
+		}
 	
 	}
 	
@@ -105,3 +117,11 @@ For any type of tree, not just binary search trees
 //    If there is a left property on the node dequeued - add it to the queue
 //		If there is a right property on the node dequeued - add it to the queue
 
+// Depth-first search
+// 3 main steps
+// 1. explore node
+// 2. traverse left
+// 3. traverse right
+
+// DFS PreOrder
+// 
