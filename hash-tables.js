@@ -105,6 +105,36 @@ class HashTable {
 		return undefined;
 	}
 
+	keys() {
+		let keysArray = [];
+		for (let i = 0; i < this.keyMap.length; i++) {
+			if (this.keyMap[i]) {
+				// console.log(this.keyMap[i])
+				for (let j = 0; j < this.keyMap[i].length; j++) {
+					if (!keysArray.includes(this.keyMap[i][j][0])) {
+						keysArray.push(this.keyMap[i][j][0])
+					}
+				}
+			} 
+		}
+		return keysArray;
+	}
+
+	values() {
+		let valuesArray = [];
+		for (let i = 0; i < this.keyMap.length; i++) {
+			if (this.keyMap[i]) {
+				// console.log(this.keyMap[i])
+				for (let j = 0; j < this.keyMap[i].length; j++) {
+					if (!valuesArray.includes(this.keyMap[i][j][1])) {
+						valuesArray.push(this.keyMap[i][j][1])
+					}
+				}
+			} 
+		}
+		return valuesArray;
+	}
+
 }
 
 let ht = new HashTable(7);
@@ -114,6 +144,7 @@ ht.set('british', 'chips')
 ht.set('japanese', 'sushi')
 ht.set('italian', 'pasta')
 ht.set('thai', 'curry')
+ht.set('japanese', 'curry')
 ht.set('korean', 'japchae')
 
 // console.log(ht.set('helol world','...'))
