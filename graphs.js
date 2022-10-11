@@ -56,6 +56,10 @@ class Graph {
 		delete this.adjacencyList[vertex]
 	}
 
+	depthFirstTraversal () {
+		
+	}
+
 }
 
 const g1 = new Graph()
@@ -72,3 +76,40 @@ g1.addEdge("Beijing", "Tokyo")
 g1.addEdge("Beijing", "Seoul")
 
 g1.removeEdge("NYC", "Tokyo")
+
+// GRAPH TRAVERSAL
+
+// Graph - has no specific root
+// To traverse, we must specify a starting point
+
+/*  Real world uses
+
+-peer to peer networking
+-web crawlers
+-finding 'closest' matches/recommendations
+-shortest path problems
+	+GPS navigation
+	+Solving mazes
+	+AI shortest path
+
+
+
+Traversal = visiting/updating/checking every vertex in a graph
+
+*/
+
+const g2 = new Graph();
+g2.addVertex("A")
+g2.addVertex("B")
+g2.addVertex("C")
+g2.addVertex("D")
+g2.addVertex("E")
+g2.addVertex("F")
+
+g2.addEdge("A", "B")
+g2.addEdge("A", "C")
+g2.addEdge("B", "D")
+g2.addEdge("C", "E")
+g2.addEdge("D", "E")
+g2.addEdge("D", "F")
+g2.addEdge("E", "F")
