@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "name": "dsa-cole",
+  "version": "1.0.0",
+  "main": "binary-search-trees.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctninman/dsa-colt-steele.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctninman/dsa-colt-steele/issues"
+  },
+  "homepage": "https://github.com/ctninman/dsa-colt-steele#readme",
+  "description": ""
+}
